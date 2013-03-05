@@ -1,0 +1,3 @@
+module WeatherWeasel
+  VERSION = "0.0.1"
+end

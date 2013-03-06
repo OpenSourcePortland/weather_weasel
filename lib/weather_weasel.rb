@@ -1,5 +1,14 @@
+require "httparty"
+require "json"
 require "weather_weasel/version"
+require "weather_weasel/client"
+require "weather_weasel/location"
+require "weather_weasel/forecast"
+
 
 module WeatherWeasel
-  # Your code goes here...
+  # portland = Location.new("Portland", "OR")
+  #   puts portland.high
 end
+
+

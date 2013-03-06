@@ -12,45 +12,39 @@ module WeatherWeasel
       @client.parse_url("forecast/q/#{@state}/#{@city}.json")
     end
 
-    def forecast_days
+    def forecast_days    
       raw_data["forecast"]["simpleforecast"]["forecastday"]
     end
 
-    def high
-      all_highs.max
+    def high(scale)
+      all_highs(scale).max
     end
     
-    def low
-      all_lows.min
+    def low(scale)
+      all_lows(scale).min
     end
     
     def all_lows(scale)
       set_scale(scale)
       forecast_days.collect do |day|
-        day["low"][@tempature_format]
+        day["low"][@temperature_format]
       end
     end
-    
+
+    def all_highs(scale)
+      set_scale(scale)
+      forecast_days.collect do |day|
+        day["high"][@temperature_format]
+      end
+    end
+     
     def set_scale(scale)
       if scale == "imperial"  
-        @tempature_format = "fahrenheit" 
+        @temperature_format = "fahrenheit" 
       else
-        @tempature_format = "celsius" 
+        @temperature_format = "celsius" 
       end
-    end
-    
-    
-    
-    
-    def all_highs
-      days = raw_data["forecast"]["simpleforecast"]["forecastday"]
-      highs = []
-      days.each do |day|
-        highs << day["high"][@temperature_format]
-      end
-      highs
-    end
-  
+    end 
   end
 end
     

@@ -3,7 +3,9 @@ module WeatherWeasel
     
     def initialize
       @api_key = ENV["WUNDERGROUND_API_KEY"]
-      puts @api_key
+      unless @api_key 
+        raise "no api key defined in environment variables"
+      end
     end
     
     def parse_url(url)

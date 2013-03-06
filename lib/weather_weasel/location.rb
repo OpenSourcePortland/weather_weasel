@@ -12,6 +12,14 @@ module WeatherWeasel
       @almanac ||= Almanac.new(@city, @state, @scale, @client)
     end
     
+    def current_hurricane
+      @current_hurricane ||= CurrentHurricane.new(@client)
+    end
+
+    def current_hurricane_raw
+      current_hurricane.raw_data
+    end
+    
     def almanac_raw
       almanac.raw_data
     end
@@ -20,22 +28,20 @@ module WeatherWeasel
       @forecast ||= Forecast.new(@city, @state, @client)
     end
     
-    def forecast_raw(scale=false)
-      override_scale(scale) if scale
+    def forecast_raw
       forecast.raw_data
     end
     
-    def high(scale=false)
-      forecast.high
-      set_scale(scale)
+    def high(scale = @scale)
+      forecast.high(scale)
     end
     
-    def low
-      forecast.low
+    def low(scale = @scale)
+      forecast.low(scale)     
     end
     
-    def all_highs
-      forecast.all_highs
+    def all_highs(scale = @scale)
+      forecast.all_highs(scale)
     end
     
     def all_lows(scale = @scale)

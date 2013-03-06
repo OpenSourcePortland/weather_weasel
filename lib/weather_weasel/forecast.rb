@@ -8,7 +8,7 @@ module WeatherWeasel
       @client = client
     end
     
-    def forecast
+    def forecast_data
       @client.parse_url("forecast/q/#{@state}/#{@city}.json")
     end
     def high
@@ -20,7 +20,7 @@ module WeatherWeasel
     end
     
     def all_lows
-      days = forecast["forecast"]["simpleforecast"]["forecastday"]
+      days = forecast_data["forecast"]["simpleforecast"]["forecastday"]
       lows = []
       days.each do |day|
         lows << day["low"][@temperature_format]
@@ -29,7 +29,7 @@ module WeatherWeasel
     end
     
     def all_highs
-      days = forecast["forecast"]["simpleforecast"]["forecastday"]
+      days = forecast_data["forecast"]["simpleforecast"]["forecastday"]
       highs = []
       days.each do |day|
         highs << day["high"][@temperature_format]

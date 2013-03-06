@@ -10,18 +10,32 @@ module WeatherWeasel
       set_scale
     end
     
-    # def get_forecast
-    #   @forecast ||= Forecast.new()
-    # end
-    
     def forecast
-      @forecast ||= Forecast.new(@city, @state, @temperature_format, @client)
-      @forecast.forecast
+      forecast ||= Forecast.new(@city, @state, @temperature_format, @client)
+    end
+    
+    def forecast_raw(scale=0)
+      if scale != 0
+        @scale = scale
+        set_scale
+      end
+      forecast.forecast_data
     end
     
     def high
-      @forecast ||= Forecast.new(@city, @state, @temperature_format, @client)
-      @forecast.high
+      forecast.high
+    end
+    
+    def low
+      forecast.low
+    end
+    
+    def all_highs
+      forecast.all_highs
+    end
+    
+    def all_lows
+      forecast.all_lows
     end
     
     def set_scale

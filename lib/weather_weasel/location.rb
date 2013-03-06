@@ -1,6 +1,5 @@
 module WeatherWeasel
   class Location
-    attr_accessor :city, :state
     
     def initialize(city, state, scale="imperial")
       @city = city
@@ -11,14 +10,16 @@ module WeatherWeasel
     end
     
     def forecast
-      forecast ||= Forecast.new(@city, @state, @temperature_format, @client)
+      @forecast ||= Forecast.new(@city, @state, @temperature_format, @client)
     end
     
-    def forecast_raw(scale=0)
-      if scale != 0
-        @scale = scale
-        set_scale
-      end
+    def overide_scale(scale)
+      @scale = scale
+      set_scale
+    end
+    
+    def forecast_raw(scale=false)
+      override_scale(scale) if scale
       forecast.forecast_data
     end
     

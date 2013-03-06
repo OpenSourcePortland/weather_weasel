@@ -2,7 +2,7 @@ module WeatherWeasel
   class Client
     
     def initialize
-      @api_key = ENV["wunderground_api_key"]
+      @api_key = ENV["WUNDERGROUND_API_KEY"]
       puts @api_key
     end
     

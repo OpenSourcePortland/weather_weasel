@@ -4,6 +4,8 @@ require "weather_weasel/version"
 require "weather_weasel/client"
 require "weather_weasel/location"
 require "weather_weasel/forecast"
+require "weather_weasel/almanac"
+
 
 
 module WeatherWeasel

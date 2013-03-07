@@ -24,6 +24,15 @@ module WeatherWeasel
       almanac.raw_data
     end
     
+    def conditions
+      @conditions ||= Conditions.new(@city, @state, @scale, @client)
+    end
+
+    def forecast_conditions
+      forecast.forecast_conditions
+    end
+
+
     def forecast
       @forecast ||= Forecast.new(@city, @state, @client)
     end

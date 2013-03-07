@@ -37,7 +37,13 @@ module WeatherWeasel
         day["high"][@temperature_format]
       end
     end
-     
+
+    def forecast_conditions
+      forecast_days.collect do |day|
+        day["conditions"]
+      end
+    end
+
     def set_scale(scale)
       if scale == "imperial"  
         @temperature_format = "fahrenheit" 
@@ -48,5 +54,6 @@ module WeatherWeasel
   end
 end
     
-    
+
+
       

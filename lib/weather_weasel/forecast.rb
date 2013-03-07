@@ -58,6 +58,10 @@ module WeatherWeasel
     def highest_snow_day(scale)
       all_snow_day(scale).max
     end
+    
+    def snow_day(day, scale)
+      all_snow_day(scale)[day]
+    end
      
     def set_scale(scale)
       if scale == "imperial"  

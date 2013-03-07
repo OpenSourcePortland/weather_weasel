@@ -62,6 +62,20 @@ module WeatherWeasel
     def snow_day(day, scale)
       all_snow_day(scale)[day]
     end
+    
+    def all_snow_night(scale)
+      set_scale(scale)
+      forecast_days.collect do |day|
+        day["snow_night"][@snow_format]
+      end
+    end
+    
+    def all_snow_allday(scale)
+      set_scale(scale)
+      forecast_days.collect do |day|
+        day["snow_allday"][@snow_format]
+      end
+    end
      
     def set_scale(scale)
       if scale == "imperial"  

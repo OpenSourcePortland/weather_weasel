@@ -68,6 +68,14 @@ module WeatherWeasel
       forecast.highest_snow_day(scale)
     end
     
+    def all_snow_night(scale = @scale)
+      forecast.snow_night(scale)
+    end
+    
+    def all_snow_allday(scale = @scale)
+      forecast.all_snow_allday(scale)
+    end
+    
   end
 end
 

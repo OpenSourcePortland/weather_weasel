@@ -65,7 +65,7 @@ describe WeatherWeasel::Forecast do
     @portland.all_snow_day("imperial").should == [0, 0, 0, 0]
   end
   
-  it "can return the highest snow accumilation of the forecast in inches" do
+  it "can return the highest snow day accumilation of the forecast in inches" do
     @portland.stub(:forecast_days).and_return(@test_data)
     @portland.highest_snow_day("imperial").should == 0
   end
@@ -73,6 +73,21 @@ describe WeatherWeasel::Forecast do
   it "can return the highest snow accumilation of the forecast in centimeters" do
     @portland.stub(:forecast_days).and_return(@test_data)
     @portland.highest_snow_day("metric").should == 0
+  end
+  
+  it "can return the snow accumilation for a given day in the forecast" do
+    @portland.stub(:forecast_days).and_return(@test_data)
+    @portland.snow_day(0, "metric").should == 0
+  end
+  
+  it "can return an array of the snow night accumilation for each day in the forecast" do
+    @portland.stub(:forecast_days).and_return(@test_data)
+    @portland.all_snow_night("imperial").should == [0, 0, 0, 0]
+  end
+  
+  it "can return an array of the all day accumilation for each day in the forecast" do
+    @portland.stub(:forecast_days).and_return(@test_data)
+    @portland.all_snow_allday("imperial").should == [0, 0, 0, 0]
   end
   
 end

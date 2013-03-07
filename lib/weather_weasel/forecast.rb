@@ -5,7 +5,6 @@ module WeatherWeasel
       @city = city
       @state = state
       @client = client
-      #set_scale
     end
         
     def raw_data

@@ -47,6 +47,23 @@ module WeatherWeasel
     def all_lows(scale = @scale)
       forecast.all_lows(scale)
     end
+    
+    def all_max_wind(scale = @scale)
+      forecast.all_max_wind(scale)
+    end
+    
+    def max_wind(scale = @scale)
+      forecast.max_wind(scale)
+    end
+    
+    def all_snow_day(scale = @scale)
+      forecast.all_snow_day(scale)
+    end
+    
+    def highest_snow_day(scale = @scale)
+      forecast.highest_snow_day(scale)
+    end
+    
   end
 end
 

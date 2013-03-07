@@ -36,12 +36,38 @@ module WeatherWeasel
         day["high"][@temperature_format]
       end
     end
+    
+    def max_wind(scale)
+      all_max_wind(scale).max
+    end
+    
+    def all_max_wind(scale)
+      set_scale(scale)
+      forecast_days.collect do |day|
+        day["maxwind"][@wind_format]
+      end
+    end
+    
+    def all_snow_day(scale)
+      set_scale(scale)
+      forecast_days.collect do |day|
+        day["snow_day"][@snow_format]
+      end
+    end
+    
+    def highest_snow_day(scale)
+      all_snow_day(scale).max
+    end
      
     def set_scale(scale)
       if scale == "imperial"  
         @temperature_format = "fahrenheit" 
+        @wind_format = "mph"
+        @snow_format = "in"
       else
         @temperature_format = "celsius" 
+        @wind_format = "kph"
+        @snow_fomrat = "cm"
       end
     end 
   end

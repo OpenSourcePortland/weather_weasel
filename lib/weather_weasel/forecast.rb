@@ -59,8 +59,8 @@ module WeatherWeasel
       all_snow_day(scale).max
     end
     
-    def snow_day(day, scale)
-      all_snow_day(scale)[day]
+    def snow_day(day_index, scale)
+      all_snow_day(scale)[day_index]
     end
     
     def all_snow_night(scale)

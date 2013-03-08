@@ -7,11 +7,8 @@ module WeatherWeasel
       @scale = scale
       @client = Client.new
     end
-    
-    def almanac
-      @almanac ||= Almanac.new(@city, @state, @scale, @client)
-    end
-    
+
+#current Hurricane Method        
     def current_hurricane
       @current_hurricane ||= CurrentHurricane.new(@client)
     end
@@ -19,15 +16,22 @@ module WeatherWeasel
     def current_hurricane_raw
       current_hurricane.raw_data
     end
-    
+
+#Almanac method   
     def almanac_raw
       almanac.raw_data
     end
+
+    def almanac
+      @almanac ||= Almanac.new(@city, @state, @scale, @client)
+    end
     
+#Condition (specific location method)   
     def conditions
       @conditions ||= Conditions.new(@city, @state, @scale, @client)
     end
 
+#Forecast_conditions Methods
     def forecast_conditions
       forecast.forecast_conditions
     end
@@ -36,6 +40,7 @@ module WeatherWeasel
       forecast.forecast_condition(day_index)
     end
 
+#POPS Methods
     def pop(day_index)
       forecast.pops(day_index)
     end
@@ -44,15 +49,28 @@ module WeatherWeasel
       forecast.pops
     end
 
-    def qpf_alldays(scale=@rain_format)
-      forecast.qpf_allday(scale)
+#QPF Methods
+    def qpf_alldays(format=@rain_format)
+      forecast.qpf_allday(format)
     end
 
-    def qpf_days(scale=@rain_format)
-      forecast.qpf_days(scale)
+    def qpf_days(format=@rain_format)
+      forecast.qpf_days(format)
     end
 
+    def qpf_day(day_index, format=@rain_format)
+      forecast.qpf_day(day_index, format)
+    end
 
+    def qpf_nights(format = @rain_format)
+      forecast.qpf_nights(format)
+    end
+
+    def qpf_night(day_index, format = @rain_format)
+      forecast.qpf_night(day_index, format)
+    end
+    
+#Forecast Methods
     def forecast
       @forecast ||= Forecast.new(@city, @state, @client)
     end
@@ -61,6 +79,7 @@ module WeatherWeasel
       forecast.raw_data
     end
 
+#Skyicon Methods
     def skyicons
       forecast.skyicons
     end
@@ -68,7 +87,8 @@ module WeatherWeasel
     def skyicon(day_index)
       forecast.skyicon(day_index)
     end
-    
+ 
+#Temperature Methods    
     def high(scale = @scale)
       forecast.high(scale)
     end

@@ -17,6 +17,17 @@ module WeatherWeasel
       raw_data["forecast"]["simpleforecast"]["forecastday"]
     end
 
+    def set_scale(scale)
+      if scale == "imperial"  
+        @temperature_format = "fahrenheit"
+        @rain_format = "in" 
+      else
+        @temperature_format = "celsius" 
+        @rain_format = "mm"
+      end
+    end
+
+#Highs and lows methods
     def high(scale)
       all_highs(scale).max
     end
@@ -39,6 +50,7 @@ module WeatherWeasel
       end
     end
 
+#Forecast Condition methods
     def forecast_condition(day_index = 0)
       forecast_conditions[day_index]
     end
@@ -49,12 +61,12 @@ module WeatherWeasel
       end
     end
 
+#QPF Methods
     def qpf_alldays(format = "in")
       forecast_days.collect do |day|
         day["qpf_allday"][@rain_format]
       end
     end
-
 
     def qpf_days(format = "in")
       forecast_days.collect do |day|
@@ -62,8 +74,21 @@ module WeatherWeasel
       end
     end
 
+    def qpf_day(day_index, format = "in")
+      qpf_days[day_index]
+    end
 
+    def qpf_nights(format = "in")
+      qpf_nights.collect do |day|
+        day["qpf_night"][@rain_format]
+      end
+    end
 
+    def qpf_night(day_index, format = "in")
+      qpf_night[day_index]
+    end
+
+#Skyicon Methods
     def skyicon(day_index = 0)
       skyicons[day_index]
     end
@@ -74,6 +99,7 @@ module WeatherWeasel
       end
     end
 
+#POPs methods
     def pops
       forecast_days.collect do |day|
         day["pop"]
@@ -83,19 +109,17 @@ module WeatherWeasel
     def pop(day_index = 0)
       pops[day_index]
     end
-    
-    def set_scale(scale)
-      if scale == "imperial"  
-        @temperature_format = "fahrenheit"
-        @rain_format = "in" 
-      else
-        @temperature_format = "celsius" 
-        @rain_format = "mm"
-      end
-    end 
   end
 end
-    
-
-
-      
+   
+# [{"date"=>{"epoch"=>"1362722400", "pretty"=>"10:00 PM PST on March 07, 2013", 
+#     "day"=>7, "month"=>3, "year"=>2013, "yday"=>65, "hour"=>22, "min"=>"00", "sec"=>0, 
+#     "isdst"=>"0", "monthname"=>"March", "weekday_short"=>"Thu", "weekday"=>"Thursday", 
+#     "ampm"=>"PM", "tz_short"=>"PST", "tz_long"=>"America/Los_Angeles"}, "period"=>1, 
+#      "icon"=>"rain", 
+#       "icon_url"=>"http://icons-ak.wxug.com/i/c/k/rain.gif", 
+#        "snow_allday"=>{"in"=>0, "cm"=>0}, "snow_day"=>{"in"=>0, 
+#         "cm"=>0}, "snow_night"=>{"in"=>0, "cm"=>0}, "maxwind"=>{"mph"=>9, "kph"=>14, "dir"=>"South", 
+#           "degrees"=>172}, "avewind"=>{"mph"=>7, "kph"=>11, "dir"=>"WNW", "degrees"=>294}, 
+#           "avehumidity"=>70, "maxhumidity"=>90, "minhumidity"=>59}, {"date"=>{"epoch"=>"1362808800", 
+#             "pretty"=>

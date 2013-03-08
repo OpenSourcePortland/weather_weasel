@@ -6,10 +6,24 @@ describe WeatherWeasel::Forecast do
   @portland = WeatherWeasel::Forecast.new("Portland", "OR", "test")
    
   end
+<<<<<<< HEAD
   
   it "can return the highest temperature in its forecast days in fahrenheit" do
     @portland.stub(:forecast_days).and_return(@test_data)
     @portland.high("imperial").should == 57
+=======
+
+  it "can return the day_high temperature from its forecast days" do
+    portland = WeatherWeasel::Forecast.new("OR", "Portland", "Test")
+    portland.stub(:forecast_days).and_return(@test_data)
+    portland.day_high(0,"imperial").should == 55
+  end
+
+  it "can return the lowest temperature in its forecast days" do
+    portland = WeatherWeasel::Forecast.new("OR", "Portland", "test")
+    portland.stub(:forecast_days).and_return(@test_data)
+    portland.low("imperial").should == 37
+>>>>>>> Beth_methods
   end
   
   it "can return the highest temperature in its forecast days in celsius" do
@@ -135,7 +149,7 @@ describe WeatherWeasel::Forecast do
   it "can return the qpf_night for its forecast days" do
     portland = WeatherWeasel::Forecast.new("OR", "Portland", "Test")
     portland.stub(:forecast_days).and_return(@test_data)
-    portland.qpf_night(0).should == 0.04
+    portland.qpf_night(0, "imperial").should == 0.0
   end
 
   it "can return the qpf_nights for its forecast days" do
@@ -157,3 +171,4 @@ describe WeatherWeasel::Forecast do
   end
   
 end
+

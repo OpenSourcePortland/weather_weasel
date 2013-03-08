@@ -35,6 +35,10 @@ module WeatherWeasel
       all_highs(scale).max
     end
     
+    def day_high(day_index, format = @rain_format)
+      all_highs(format)[day_index]
+    end
+
     def low(scale)
       all_lows(scale).min
     end
@@ -107,31 +111,43 @@ module WeatherWeasel
     end
 
 #QPF Methods
-    def qpf_alldays(format = "in")
+    def qpf_alldays(scale)
+      set_scale(scale)
       forecast_days.collect do |day|
         day["qpf_allday"][@rain_format]
       end
     end
 
-    def qpf_days(format = "in")
+    def qpf_days(scale)
+      set_scale(scale)
       forecast_days.collect do |day|
         day["qpf_day"][@rain_format]
       end
     end
 
-    def qpf_day(day_index, format = "in")
-      qpf_days[day_index]
+    def qpf_day(day_index, scale)
+      qpf_days(scale)[day_index]
     end
 
-    def qpf_nights(format = "in")
-      qpf_nights.collect do |day|
+    def qpf_nights(scale)
+      set_scale(scale)
+      forecast_days.collect do |day|
         day["qpf_night"][@rain_format]
       end
     end
 
-    def qpf_night(day_index, format = "in")
-      qpf_night[day_index]
+    def qpf_night(day_index, scale)
+      qpf_nights(scale)[day_index]
     end
+
+    def yo_dawg(joke)
+      if joke.length > 1000
+        joke
+      else
+        result = joke + "I put a yo dawg joke in your yo dawg joke so you could say \n"
+        yo_dawg(result)
+      end
+    end 
 
 #Skyicon Methods
     def skyicon(day_index = 0)

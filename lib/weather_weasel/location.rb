@@ -1,7 +1,7 @@
 module WeatherWeasel
   class Location
     
-    def initialize(city, state, scale="imperial")
+    def initialize(city, state, scale = "imperial")
       @city = city
       @state = state
       @scale = scale
@@ -50,24 +50,24 @@ module WeatherWeasel
     end
 
 #QPF Methods
-    def qpf_alldays(format=@rain_format)
-      forecast.qpf_allday(format)
+    def qpf_alldays(scale = @scale)
+      forecast.qpf_alldays(scale)
     end
 
-    def qpf_days(format=@rain_format)
-      forecast.qpf_days(format)
+    def qpf_days(scale = @scale)
+      forecast.qpf_days(scale)
     end
 
-    def qpf_day(day_index, format=@rain_format)
-      forecast.qpf_day(day_index, format)
+    def qpf_day(day_index, scale = @scale)
+      forecast.qpf_day(day_index, scale)
     end
 
-    def qpf_nights(format = @rain_format)
-      forecast.qpf_nights(format)
+    def qpf_nights(scale = @scale)
+      forecast.qpf_nights(scale)
     end
 
-    def qpf_night(day_index, format = @rain_format)
-      forecast.qpf_night(day_index, format)
+    def qpf_night(day_index, scale = @scale)
+      forecast.qpf_night(day_index, scale)
     end
     
 #Forecast Methods
@@ -91,6 +91,10 @@ module WeatherWeasel
 #Temperature Methods    
     def high(scale = @scale)
       forecast.high(scale)
+    end
+
+    def day_high(day_index, scale = @scale)
+      forecast.all_highs(day_index, format)
     end
     
     def low(scale = @scale)

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 require 'spec_helper'
 describe WeatherWeasel::Forecast do
   before(:all) do
@@ -10,32 +9,32 @@ describe WeatherWeasel::Forecast do
   
   it "can return the highest temperature in its forecast days in fahrenheit" do
     @portland.stub(:forecast_days).and_return(@test_data)
-    @portland.high("imperial").should == "57"
+    @portland.high("imperial").should == 57
   end
   
   it "can return the highest temperature in its forecast days in celsius" do
     @portland.stub(:forecast_days).and_return(@test_data)
-    @portland.high("metric").should == "14"
+    @portland.high("metric").should == 14
   end
   
   it "can return the lowest temperature in its forecast days in fahrenheit" do
     @portland.stub(:forecast_days).and_return(@test_data)
-    @portland.low("imperial").should == "37"
+    @portland.low("imperial").should == 37
   end
   
   it "can return the lowest temperature in its forecast days in celsius" do
     @portland.stub(:forecast_days).and_return(@test_data)
-    @portland.low("metric").should == "3"
+    @portland.low("metric").should == 3
   end
   
   it "can return the an array of highs in its forecast days" do
     @portland.stub(:forecast_days).and_return(@test_data)
-    @portland.all_highs("imperial").should == ["55", "57", "55", "57"]
+    @portland.all_highs("imperial").should == [55, 57, 55, 57]
   end
   
   it "can return the an array of lows in its forecast days" do
     @portland.stub(:forecast_days).and_return(@test_data)
-    @portland.all_lows("imperial").should == ["37", "37", "45", "39"]
+    @portland.all_lows("imperial").should == [37, 37, 45, 39]
   end
   
   it "can return fahrenheit when passed imperial" do
@@ -118,19 +117,19 @@ describe WeatherWeasel::Forecast do
   it "can return the qpf_alldays for its forecast days" do
     portland = WeatherWeasel::Forecast.new("OR", "Portland", "Test")
     portland.stub(:forecast_days).and_return(@test_data)
-    portland.qpf_alldays("in").should == [0.07, 0.0, 0.0, 0.21]
+    portland.qpf_alldays("imperial").should == [0.07, 0.0, 0.0, 0.21]
   end
 
   it "can return the qpf_day for its forecast days" do
     portland = WeatherWeasel::Forecast.new("OR", "Portland", "Test")
     portland.stub(:forecast_days).and_return(@test_data)
-    portland.qpf_day(0,"in").should == 0.04
+    portland.qpf_day(0,"imperial").should == 0.04
   end
 
   it "can return the qpf_days for its forecast days" do
     portland = WeatherWeasel::Forecast.new("OR", "Portland", "Test")
     portland.stub(:forecast_days).and_return(@test_data)
-    portland.qpf_days("in").should == [0.04, 0.0, 0.0, 0.12]
+    portland.qpf_days("imperial").should == [0.04, 0.0, 0.0, 0.12]
   end
 
   it "can return the qpf_night for its forecast days" do
@@ -142,7 +141,7 @@ describe WeatherWeasel::Forecast do
   it "can return the qpf_nights for its forecast days" do
     portland = WeatherWeasel::Forecast.new("OR", "Portland", "Test")
     portland.stub(:forecast_days).and_return(@test_data)
-    portland.qpf_nights("in").should == [0.04, 0.0, 0.0, 0.12]
+    portland.qpf_nights("imperial").should == [0.04, 0.0, 0.0, 0.12]
   end
   
   it "can return all forecast_conditions in its forecast days" do

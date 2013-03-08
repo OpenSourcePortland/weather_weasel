@@ -32,6 +32,26 @@ module WeatherWeasel
       forecast.forecast_conditions
     end
 
+    def forecast_condition(day_index)
+      forecast.forecast_condition(day_index)
+    end
+
+    def pop(day_index)
+      forecast.pops(day_index)
+    end
+    
+    def pops
+      forecast.pops
+    end
+
+    def qpf_alldays(scale=@rain_format)
+      forecast.qpf_allday(scale)
+    end
+
+    def qpf_days(scale=@rain_format)
+      forecast.qpf_days(scale)
+    end
+
 
     def forecast
       @forecast ||= Forecast.new(@city, @state, @client)
@@ -39,6 +59,14 @@ module WeatherWeasel
     
     def forecast_raw
       forecast.raw_data
+    end
+
+    def skyicons
+      forecast.skyicons
+    end
+
+    def skyicon(day_index)
+      forecast.skyicon(day_index)
     end
     
     def high(scale = @scale)

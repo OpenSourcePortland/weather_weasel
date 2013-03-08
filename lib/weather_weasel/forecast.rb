@@ -1,6 +1,7 @@
 module WeatherWeasel
   class Forecast
-    
+    attr_accessor :temperature_format, :rain_format
+
     def initialize(city, state, client)
       @city = city
       @state = state
@@ -15,6 +16,21 @@ module WeatherWeasel
       raw_data["forecast"]["simpleforecast"]["forecastday"]
     end
 
+    def set_scale(scale)
+      if scale == "imperial"  
+        @temperature_format = "fahrenheit" 
+        @wind_format = "mph"
+        @snow_format = "in"
+        @rain_format = "in"
+      else
+        @temperature_format = "celsius" 
+        @wind_format = "kph"
+        @snow_fomrat = "cm"
+        @rain_format = "mm"
+      end
+    end
+
+#Highs and lows methods
     def high(scale)
       all_highs(scale).max
     end
@@ -26,17 +42,18 @@ module WeatherWeasel
     def all_lows(scale)
       set_scale(scale)
       forecast_days.collect do |day|
-        day["low"][@temperature_format]
+        day["low"][@temperature_format].to_i
       end
     end
 
     def all_highs(scale)
       set_scale(scale)
       forecast_days.collect do |day|
-        day["high"][@temperature_format]
+        day["high"][@temperature_format].to_i
       end
     end
-    
+
+#wind methods    
     def max_wind(scale)
       all_max_wind(scale).max
     end
@@ -47,7 +64,8 @@ module WeatherWeasel
         day["maxwind"][@wind_format]
       end
     end
-    
+
+#snow methods    
     def all_snow_day(scale)
       set_scale(scale)
       forecast_days.collect do |day|
@@ -76,20 +94,77 @@ module WeatherWeasel
         day["snow_allday"][@snow_format]
       end
     end
-     
-    def set_scale(scale)
-      if scale == "imperial"  
-        @temperature_format = "fahrenheit" 
-        @wind_format = "mph"
-        @snow_format = "in"
-      else
-        @temperature_format = "celsius" 
-        @wind_format = "kph"
-        @snow_fomrat = "cm"
+
+#Forecast Condition methods
+    def forecast_condition(day_index = 0)
+      forecast_conditions[day_index]
+    end
+
+    def forecast_conditions
+      forecast_days.collect do |day|
+        day["conditions"]
       end
-    end 
+    end
+
+#QPF Methods
+    def qpf_alldays(format = "in")
+      forecast_days.collect do |day|
+        day["qpf_allday"][@rain_format]
+      end
+    end
+
+    def qpf_days(format = "in")
+      forecast_days.collect do |day|
+        day["qpf_day"][@rain_format]
+      end
+    end
+
+    def qpf_day(day_index, format = "in")
+      qpf_days[day_index]
+    end
+
+    def qpf_nights(format = "in")
+      qpf_nights.collect do |day|
+        day["qpf_night"][@rain_format]
+      end
+    end
+
+    def qpf_night(day_index, format = "in")
+      qpf_night[day_index]
+    end
+
+#Skyicon Methods
+    def skyicon(day_index = 0)
+      skyicons[day_index]
+    end
+
+    def skyicons
+      forecast_days.collect do |day|
+        day["skyicon"]
+      end
+    end
+
+#POPs methods
+    def pops
+      forecast_days.collect do |day|
+        day["pop"]
+      end
+    end
+
+    def pop(day_index = 0)
+      pops[day_index]
+    end
   end
 end
-    
-    
-      
+   
+# [{"date"=>{"epoch"=>"1362722400", "pretty"=>"10:00 PM PST on March 07, 2013", 
+#     "day"=>7, "month"=>3, "year"=>2013, "yday"=>65, "hour"=>22, "min"=>"00", "sec"=>0, 
+#     "isdst"=>"0", "monthname"=>"March", "weekday_short"=>"Thu", "weekday"=>"Thursday", 
+#     "ampm"=>"PM", "tz_short"=>"PST", "tz_long"=>"America/Los_Angeles"}, "period"=>1, 
+#      "icon"=>"rain", 
+#       "icon_url"=>"http://icons-ak.wxug.com/i/c/k/rain.gif", 
+#        "snow_allday"=>{"in"=>0, "cm"=>0}, "snow_day"=>{"in"=>0, 
+#         "cm"=>0}, "snow_night"=>{"in"=>0, "cm"=>0}, "maxwind"=>{"mph"=>9, "kph"=>14, "dir"=>"South", 
+#           "degrees"=>172}, "avewind"=>{"mph"=>7, "kph"=>11, "dir"=>"WNW", "degrees"=>294}, 
+#           "avehumidity"=>70, "maxhumidity"=>90, "minhumidity"=>59}, {"date"=>{"epoch"=>"1362808800", 
+#             "pretty"=>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 require 'spec_helper'
 describe WeatherWeasel::Forecast do
   before(:all) do
@@ -88,6 +89,72 @@ describe WeatherWeasel::Forecast do
   it "can return an array of the all day accumilation for each day in the forecast" do
     @portland.stub(:forecast_days).and_return(@test_data)
     @portland.all_snow_allday("imperial").should == [0, 0, 0, 0]
+  end
+  
+  it "can return all skyicon in its forecast days" do
+    portland = WeatherWeasel::Forecast.new("OR", "Portland", "Test")
+    portland.stub(:forecast_days).and_return(@test_data)
+    portland.skyicon(0).should == "partlycloudy"
+  end 
+
+  it "can return all skyicons in its forecast days" do
+    portland = WeatherWeasel::Forecast.new("OR", "Portland", "Test")
+    portland.stub(:forecast_days).and_return(@test_data)
+    portland.skyicons.should == ["partlycloudy", "partlycloudy", "mostlysunny", "cloudy"]
+  end 
+
+  it "can return the pop for its forecast days" do
+    portland = WeatherWeasel::Forecast.new("OR", "Portland", "Test")
+    portland.stub(:forecast_days).and_return(@test_data)
+    portland.pop(0).should == 40
+  end
+
+  it "can return the pops for its forecast days" do
+    portland = WeatherWeasel::Forecast.new("OR", "Portland", "Test")
+    portland.stub(:forecast_days).and_return(@test_data)
+    portland.pops.should == [40, 10, 0, 40]
+  end
+
+  it "can return the qpf_alldays for its forecast days" do
+    portland = WeatherWeasel::Forecast.new("OR", "Portland", "Test")
+    portland.stub(:forecast_days).and_return(@test_data)
+    portland.qpf_alldays("in").should == [0.07, 0.0, 0.0, 0.21]
+  end
+
+  it "can return the qpf_day for its forecast days" do
+    portland = WeatherWeasel::Forecast.new("OR", "Portland", "Test")
+    portland.stub(:forecast_days).and_return(@test_data)
+    portland.qpf_day(0,"in").should == 0.04
+  end
+
+  it "can return the qpf_days for its forecast days" do
+    portland = WeatherWeasel::Forecast.new("OR", "Portland", "Test")
+    portland.stub(:forecast_days).and_return(@test_data)
+    portland.qpf_days("in").should == [0.04, 0.0, 0.0, 0.12]
+  end
+
+  it "can return the qpf_night for its forecast days" do
+    portland = WeatherWeasel::Forecast.new("OR", "Portland", "Test")
+    portland.stub(:forecast_days).and_return(@test_data)
+    portland.qpf_night(0).should == 0.04
+  end
+
+  it "can return the qpf_nights for its forecast days" do
+    portland = WeatherWeasel::Forecast.new("OR", "Portland", "Test")
+    portland.stub(:forecast_days).and_return(@test_data)
+    portland.qpf_nights("in").should == [0.04, 0.0, 0.0, 0.12]
+  end
+  
+  it "can return all forecast_conditions in its forecast days" do
+    portland = WeatherWeasel::Forecast.new("OR", "Portland", "Test")
+    portland.stub(:forecast_days).and_return(@test_data)
+    portland.forecast_conditions.should == ["Rain Showers", "Partly Cloudy", "Partly Cloudy", "Chance of Rain"]
+  end
+
+  it "can return all forecast_condition in its forecast days" do
+    portland = WeatherWeasel::Forecast.new("OR", "Portland", "Test")
+    portland.stub(:forecast_days).and_return(@test_data)
+    portland.forecast_condition(0).should == "Rain Showers"
   end
   
 end

@@ -100,7 +100,7 @@ module WeatherWeasel
     end
 
 #Forecast Condition methods
-    def forecast_condition(day_index = 0)
+    def forecast_condition(day_index)
       forecast_conditions[day_index]
     end
 
@@ -167,7 +167,7 @@ module WeatherWeasel
       end
     end
 
-    def pop(day_index = 0)
+    def pop(day_index)
       pops[day_index]
     end
   end

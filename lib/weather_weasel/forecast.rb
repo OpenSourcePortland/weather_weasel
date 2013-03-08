@@ -171,16 +171,36 @@ module WeatherWeasel
       pops[day_index]
     end
   end
+
+#Humidity Methods
+  def avehumidities
+    forecaset_days.collect do |day|
+      day["avehumidity"]
+    end
+  end
+
+  def avehumidity_day(day_index = 0)
+    avehumidity(day_index)
+  end
+
+  def avehumidity_day_max
+    avehumidities.max 
+  end
+
+
+
+
+
 end
-   
+ 
+
 # [{"date"=>{"epoch"=>"1362722400", "pretty"=>"10:00 PM PST on March 07, 2013", 
 #     "day"=>7, "month"=>3, "year"=>2013, "yday"=>65, "hour"=>22, "min"=>"00", "sec"=>0, 
 #     "isdst"=>"0", "monthname"=>"March", "weekday_short"=>"Thu", "weekday"=>"Thursday", 
 #     "ampm"=>"PM", "tz_short"=>"PST", "tz_long"=>"America/Los_Angeles"}, "period"=>1, 
 #      "icon"=>"rain", 
 #       "icon_url"=>"http://icons-ak.wxug.com/i/c/k/rain.gif", 
-#        "snow_allday"=>{"in"=>0, "cm"=>0}, "snow_day"=>{"in"=>0, 
-#         "cm"=>0}, "snow_night"=>{"in"=>0, "cm"=>0}, "maxwind"=>{"mph"=>9, "kph"=>14, "dir"=>"South", 
+#        "maxwind"=>{"mph"=>9, "kph"=>14, "dir"=>"South", 
 #           "degrees"=>172}, "avewind"=>{"mph"=>7, "kph"=>11, "dir"=>"WNW", "degrees"=>294}, 
 #           "avehumidity"=>70, "maxhumidity"=>90, "minhumidity"=>59}, {"date"=>{"epoch"=>"1362808800", 
 #             "pretty"=>

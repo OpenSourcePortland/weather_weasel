@@ -136,7 +136,24 @@ module WeatherWeasel
     def all_snow_allday(scale = @scale)
       forecast.all_snow_allday(scale)
     end
-    
+   
+#Humidity methods
+    def avehumidities
+      forecast.avehumidities
+    end
+
+    def avehumidity_day()
+
+  def avehumidity_day(day_index = 0)
+    avehumidity(day_index)
+  end
+
+  def avehumidity_day_max
+    avehumidities.max 
+  end
+
+
+
   end
 end
 

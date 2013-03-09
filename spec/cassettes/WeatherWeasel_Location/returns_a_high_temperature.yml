@@ -1,0 +1,120 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.wunderground.com/api/6361b5506e2aadae/forecast/q/OR/Portland.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Sat, 09 Mar 2013 00:05:02 GMT
+      server:
+      - Apache/1.3.42 (Unix) PHP/5.3.2
+      cache-control:
+      - max-age=300
+      expires:
+      - Sat, 09 Mar 2013 00:10:02 GMT
+      x-creationtime:
+      - '0.209'
+      set-cookie:
+      - DT=1362787502:1893:365-l1; path=/; expires=Fri, 01-Jan-2020 00:00:00 GMT;
+        domain=.wunderground.com
+      connection:
+      - close
+      transfer-encoding:
+      - chunked
+      content-type:
+      - application/json; charset=UTF-8
+    body:
+      encoding: US-ASCII
+      string: ! "\n{\n\t\"response\": {\n\t\t\"version\": \"0.1\"\n\t\t,\"termsofService\":
+        \"http://www.wunderground.com/weather/api/d/terms.html\"\n\t\t,\"features\":
+        {\n\t\t\"forecast\": 1\n\t\t}\n\t}\n\t\t,\n\t\"forecast\":{\n\t\t\"txt_forecast\":
+        {\n\t\t\"date\":\"1:00 PM PST\",\n\t\t\"forecastday\": [\n\t\t{\n\t\t\"period\":0,\n\t\t\"icon\":\"partlycloudy\",\n\t\t\"icon_url\":\"http://icons-ak.wxug.com/i/c/k/partlycloudy.gif\",\n\t\t\"title\":\"Friday\",\n\t\t\"fcttext\":\"Partly
+        cloudy. Fog early. High of 59F. Winds less than 5 mph.\",\n\t\t\"fcttext_metric\":\"Partly
+        cloudy. Fog early. High of 15C. Winds less than 5 km/h.\",\n\t\t\"pop\":\"10\"\n\t\t}\n\t\t,\n\t\t{\n\t\t\"period\":1,\n\t\t\"icon\":\"partlycloudy\",\n\t\t\"icon_url\":\"http://icons-ak.wxug.com/i/c/k/partlycloudy.gif\",\n\t\t\"title\":\"Friday
+        Night\",\n\t\t\"fcttext\":\"Partly cloudy. Fog overnight. Low of 39F. Winds
+        less than 5 mph.\",\n\t\t\"fcttext_metric\":\"Partly cloudy. Fog overnight.
+        Low of 4C. Winds less than 5 km/h.\",\n\t\t\"pop\":\"0\"\n\t\t}\n\t\t,\n\t\t{\n\t\t\"period\":2,\n\t\t\"icon\":\"partlycloudy\",\n\t\t\"icon_url\":\"http://icons-ak.wxug.com/i/c/k/partlycloudy.gif\",\n\t\t\"title\":\"Saturday\",\n\t\t\"fcttext\":\"Partly
+        cloudy. Fog early. High of 57F. Winds less than 5 mph.\",\n\t\t\"fcttext_metric\":\"Partly
+        cloudy. Fog early. High of 14C. Winds less than 5 km/h.\",\n\t\t\"pop\":\"0\"\n\t\t}\n\t\t,\n\t\t{\n\t\t\"period\":3,\n\t\t\"icon\":\"partlycloudy\",\n\t\t\"icon_url\":\"http://icons-ak.wxug.com/i/c/k/partlycloudy.gif\",\n\t\t\"title\":\"Saturday
+        Night\",\n\t\t\"fcttext\":\"Partly cloudy with a chance of rain after midnight.
+        Fog overnight. Low of 43F. Winds less than 5 mph.\",\n\t\t\"fcttext_metric\":\"Partly
+        cloudy with a chance of rain after midnight. Fog overnight. Low of 6C. Winds
+        less than 5 km/h.\",\n\t\t\"pop\":\"20\"\n\t\t}\n\t\t,\n\t\t{\n\t\t\"period\":4,\n\t\t\"icon\":\"mostlycloudy\",\n\t\t\"icon_url\":\"http://icons-ak.wxug.com/i/c/k/mostlycloudy.gif\",\n\t\t\"title\":\"Sunday\",\n\t\t\"fcttext\":\"Overcast
+        with a chance of rain. High of 59F. Winds less than 5 mph. Chance of rain
+        20%.\",\n\t\t\"fcttext_metric\":\"Overcast with a chance of rain. High of
+        15C. Winds less than 5 km/h.\",\n\t\t\"pop\":\"20\"\n\t\t}\n\t\t,\n\t\t{\n\t\t\"period\":5,\n\t\t\"icon\":\"cloudy\",\n\t\t\"icon_url\":\"http://icons-ak.wxug.com/i/c/k/cloudy.gif\",\n\t\t\"title\":\"Sunday
+        Night\",\n\t\t\"fcttext\":\"Overcast with a chance of rain after midnight.
+        Low of 45F. Winds less than 5 mph.\",\n\t\t\"fcttext_metric\":\"Overcast with
+        a chance of rain after midnight. Low of 7C. Winds less than 5 km/h.\",\n\t\t\"pop\":\"20\"\n\t\t}\n\t\t,\n\t\t{\n\t\t\"period\":6,\n\t\t\"icon\":\"chancerain\",\n\t\t\"icon_url\":\"http://icons-ak.wxug.com/i/c/k/chancerain.gif\",\n\t\t\"title\":\"Monday\",\n\t\t\"fcttext\":\"Overcast
+        with a chance of rain in the afternoon. High of 59F. Winds from the SSW at
+        10 to 15 mph. Chance of rain 50% with rainfall amounts near 0.2 in. possible.\",\n\t\t\"fcttext_metric\":\"Overcast
+        with a chance of rain in the afternoon. High of 15C. Breezy. Winds from the
+        SSW at 15 to 25 km/h. Chance of rain 50% with rainfall amounts near 6.3 mm
+        possible.\",\n\t\t\"pop\":\"50\"\n\t\t}\n\t\t,\n\t\t{\n\t\t\"period\":7,\n\t\t\"icon\":\"chancerain\",\n\t\t\"icon_url\":\"http://icons-ak.wxug.com/i/c/k/chancerain.gif\",\n\t\t\"title\":\"Monday
+        Night\",\n\t\t\"fcttext\":\"Partly cloudy with a chance of rain. Low of 46F.
+        Winds from the SSW at 5 to 15 mph. Chance of rain 50% with rainfall amounts
+        near 0.2 in. possible.\",\n\t\t\"fcttext_metric\":\"Partly cloudy with a chance
+        of rain. Low of 8C. Winds from the SSW at 5 to 20 km/h. Chance of rain 50%
+        with rainfall amounts near 6.1 mm possible.\",\n\t\t\"pop\":\"50\"\n\t\t}\n\t\t]\n\t\t},\n\t\t\"simpleforecast\":
+        {\n\t\t\"forecastday\": [\n\t\t{\"date\":{\n\t\"epoch\":\"1362808800\",\n\t\"pretty\":\"10:00
+        PM PST on March 08, 2013\",\n\t\"day\":8,\n\t\"month\":3,\n\t\"year\":2013,\n\t\"yday\":66,\n\t\"hour\":22,\n\t\"min\":\"00\",\n\t\"sec\":0,\n\t\"isdst\":\"0\",\n\t\"monthname\":\"March\",\n\t\"weekday_short\":\"Fri\",\n\t\"weekday\":\"Friday\",\n\t\"ampm\":\"PM\",\n\t\"tz_short\":\"PST\",\n\t\"tz_long\":\"America/Los_Angeles\"\n},\n\t\t\"period\":1,\n\t\t\"high\":
+        {\n\t\t\"fahrenheit\":\"59\",\n\t\t\"celsius\":\"15\"\n\t\t},\n\t\t\"low\":
+        {\n\t\t\"fahrenheit\":\"39\",\n\t\t\"celsius\":\"4\"\n\t\t},\n\t\t\"conditions\":\"Partly
+        Cloudy\",\n\t\t\"icon\":\"partlycloudy\",\n\t\t\"icon_url\":\"http://icons-ak.wxug.com/i/c/k/partlycloudy.gif\",\n\t\t\"skyicon\":\"mostlysunny\",\n\t\t\"pop\":10,\n\t\t\"qpf_allday\":
+        {\n\t\t\"in\": 0.00,\n\t\t\"mm\": 0.0\n\t\t},\n\t\t\"qpf_day\": {\n\t\t\"in\":
+        0.00,\n\t\t\"mm\": 0.0\n\t\t},\n\t\t\"qpf_night\": {\n\t\t\"in\": 0.00,\n\t\t\"mm\":
+        0.0\n\t\t},\n\t\t\"snow_allday\": {\n\t\t\"in\": 0,\n\t\t\"cm\": 0\n\t\t},\n\t\t\"snow_day\":
+        {\n\t\t\"in\": 0,\n\t\t\"cm\": 0\n\t\t},\n\t\t\"snow_night\": {\n\t\t\"in\":
+        0,\n\t\t\"cm\": 0\n\t\t},\n\t\t\"maxwind\": {\n\t\t\"mph\": 8,\n\t\t\"kph\":
+        13,\n\t\t\"dir\": \"NNW\",\n\t\t\"degrees\": 332\n\t\t},\n\t\t\"avewind\":
+        {\n\t\t\"mph\": 6,\n\t\t\"kph\": 10,\n\t\t\"dir\": \"NNW\",\n\t\t\"degrees\":
+        333\n\t\t},\n\t\t\"avehumidity\": 60,\n\t\t\"maxhumidity\": 82,\n\t\t\"minhumidity\":
+        46\n\t\t}\n\t\t,\n\t\t{\"date\":{\n\t\"epoch\":\"1362895200\",\n\t\"pretty\":\"10:00
+        PM PST on March 09, 2013\",\n\t\"day\":9,\n\t\"month\":3,\n\t\"year\":2013,\n\t\"yday\":67,\n\t\"hour\":22,\n\t\"min\":\"00\",\n\t\"sec\":0,\n\t\"isdst\":\"0\",\n\t\"monthname\":\"March\",\n\t\"weekday_short\":\"Sat\",\n\t\"weekday\":\"Saturday\",\n\t\"ampm\":\"PM\",\n\t\"tz_short\":\"PST\",\n\t\"tz_long\":\"America/Los_Angeles\"\n},\n\t\t\"period\":2,\n\t\t\"high\":
+        {\n\t\t\"fahrenheit\":\"57\",\n\t\t\"celsius\":\"14\"\n\t\t},\n\t\t\"low\":
+        {\n\t\t\"fahrenheit\":\"43\",\n\t\t\"celsius\":\"6\"\n\t\t},\n\t\t\"conditions\":\"Partly
+        Cloudy\",\n\t\t\"icon\":\"partlycloudy\",\n\t\t\"icon_url\":\"http://icons-ak.wxug.com/i/c/k/partlycloudy.gif\",\n\t\t\"skyicon\":\"mostlysunny\",\n\t\t\"pop\":0,\n\t\t\"qpf_allday\":
+        {\n\t\t\"in\": 0.00,\n\t\t\"mm\": 0.0\n\t\t},\n\t\t\"qpf_day\": {\n\t\t\"in\":
+        0.00,\n\t\t\"mm\": 0.0\n\t\t},\n\t\t\"qpf_night\": {\n\t\t\"in\": 0.00,\n\t\t\"mm\":
+        0.0\n\t\t},\n\t\t\"snow_allday\": {\n\t\t\"in\": 0,\n\t\t\"cm\": 0\n\t\t},\n\t\t\"snow_day\":
+        {\n\t\t\"in\": 0,\n\t\t\"cm\": 0\n\t\t},\n\t\t\"snow_night\": {\n\t\t\"in\":
+        0,\n\t\t\"cm\": 0\n\t\t},\n\t\t\"maxwind\": {\n\t\t\"mph\": 5,\n\t\t\"kph\":
+        8,\n\t\t\"dir\": \"NW\",\n\t\t\"degrees\": 304\n\t\t},\n\t\t\"avewind\": {\n\t\t\"mph\":
+        4,\n\t\t\"kph\": 6,\n\t\t\"dir\": \"NNW\",\n\t\t\"degrees\": 338\n\t\t},\n\t\t\"avehumidity\":
+        55,\n\t\t\"maxhumidity\": 75,\n\t\t\"minhumidity\": 52\n\t\t}\n\t\t,\n\t\t{\"date\":{\n\t\"epoch\":\"1362981600\",\n\t\"pretty\":\"11:00
+        PM PDT on March 10, 2013\",\n\t\"day\":10,\n\t\"month\":3,\n\t\"year\":2013,\n\t\"yday\":68,\n\t\"hour\":23,\n\t\"min\":\"00\",\n\t\"sec\":0,\n\t\"isdst\":\"1\",\n\t\"monthname\":\"March\",\n\t\"weekday_short\":\"Sun\",\n\t\"weekday\":\"Sunday\",\n\t\"ampm\":\"PM\",\n\t\"tz_short\":\"PDT\",\n\t\"tz_long\":\"America/Los_Angeles\"\n},\n\t\t\"period\":3,\n\t\t\"high\":
+        {\n\t\t\"fahrenheit\":\"59\",\n\t\t\"celsius\":\"15\"\n\t\t},\n\t\t\"low\":
+        {\n\t\t\"fahrenheit\":\"45\",\n\t\t\"celsius\":\"7\"\n\t\t},\n\t\t\"conditions\":\"Chance
+        of Rain\",\n\t\t\"icon\":\"mostlycloudy\",\n\t\t\"icon_url\":\"http://icons-ak.wxug.com/i/c/k/mostlycloudy.gif\",\n\t\t\"skyicon\":\"mostlycloudy\",\n\t\t\"pop\":20,\n\t\t\"qpf_allday\":
+        {\n\t\t\"in\": 0.03,\n\t\t\"mm\": 0.8\n\t\t},\n\t\t\"qpf_day\": {\n\t\t\"in\":
+        0.02,\n\t\t\"mm\": 0.5\n\t\t},\n\t\t\"qpf_night\": {\n\t\t\"in\": 0.03,\n\t\t\"mm\":
+        0.8\n\t\t},\n\t\t\"snow_allday\": {\n\t\t\"in\": 0,\n\t\t\"cm\": 0\n\t\t},\n\t\t\"snow_day\":
+        {\n\t\t\"in\": 0,\n\t\t\"cm\": 0\n\t\t},\n\t\t\"snow_night\": {\n\t\t\"in\":
+        0,\n\t\t\"cm\": 0\n\t\t},\n\t\t\"maxwind\": {\n\t\t\"mph\": 3,\n\t\t\"kph\":
+        5,\n\t\t\"dir\": \"NE\",\n\t\t\"degrees\": 37\n\t\t},\n\t\t\"avewind\": {\n\t\t\"mph\":
+        2,\n\t\t\"kph\": 3,\n\t\t\"dir\": \"SW\",\n\t\t\"degrees\": 230\n\t\t},\n\t\t\"avehumidity\":
+        57,\n\t\t\"maxhumidity\": 70,\n\t\t\"minhumidity\": 49\n\t\t}\n\t\t,\n\t\t{\"date\":{\n\t\"epoch\":\"1363068000\",\n\t\"pretty\":\"11:00
+        PM PDT on March 11, 2013\",\n\t\"day\":11,\n\t\"month\":3,\n\t\"year\":2013,\n\t\"yday\":69,\n\t\"hour\":23,\n\t\"min\":\"00\",\n\t\"sec\":0,\n\t\"isdst\":\"1\",\n\t\"monthname\":\"March\",\n\t\"weekday_short\":\"Mon\",\n\t\"weekday\":\"Monday\",\n\t\"ampm\":\"PM\",\n\t\"tz_short\":\"PDT\",\n\t\"tz_long\":\"America/Los_Angeles\"\n},\n\t\t\"period\":4,\n\t\t\"high\":
+        {\n\t\t\"fahrenheit\":\"59\",\n\t\t\"celsius\":\"15\"\n\t\t},\n\t\t\"low\":
+        {\n\t\t\"fahrenheit\":\"46\",\n\t\t\"celsius\":\"8\"\n\t\t},\n\t\t\"conditions\":\"Chance
+        of Rain\",\n\t\t\"icon\":\"chancerain\",\n\t\t\"icon_url\":\"http://icons-ak.wxug.com/i/c/k/chancerain.gif\",\n\t\t\"skyicon\":\"cloudy\",\n\t\t\"pop\":50,\n\t\t\"qpf_allday\":
+        {\n\t\t\"in\": 0.49,\n\t\t\"mm\": 12.4\n\t\t},\n\t\t\"qpf_day\": {\n\t\t\"in\":
+        0.25,\n\t\t\"mm\": 6.3\n\t\t},\n\t\t\"qpf_night\": {\n\t\t\"in\": 0.24,\n\t\t\"mm\":
+        6.1\n\t\t},\n\t\t\"snow_allday\": {\n\t\t\"in\": 0,\n\t\t\"cm\": 0\n\t\t},\n\t\t\"snow_day\":
+        {\n\t\t\"in\": 0,\n\t\t\"cm\": 0\n\t\t},\n\t\t\"snow_night\": {\n\t\t\"in\":
+        0,\n\t\t\"cm\": 0\n\t\t},\n\t\t\"maxwind\": {\n\t\t\"mph\": 15,\n\t\t\"kph\":
+        24,\n\t\t\"dir\": \"SSW\",\n\t\t\"degrees\": 203\n\t\t},\n\t\t\"avewind\":
+        {\n\t\t\"mph\": 9,\n\t\t\"kph\": 14,\n\t\t\"dir\": \"SSW\",\n\t\t\"degrees\":
+        196\n\t\t},\n\t\t\"avehumidity\": 77,\n\t\t\"maxhumidity\": 89,\n\t\t\"minhumidity\":
+        62\n\t\t}\n\t\t]\n\t\t}\n\t}\n}\n"
+    http_version: '1.1'
+  recorded_at: Sat, 09 Mar 2013 00:05:04 GMT
+recorded_with: VCR 2.4.0

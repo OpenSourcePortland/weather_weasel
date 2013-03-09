@@ -44,21 +44,6 @@ describe WeatherWeasel::Forecast do
     @portland.set_scale("metric") == "celsius"
   end
   
-  it "can return the array of max wind speeds in its forecast days" do
-    @portland.stub(:forecast_days).and_return(@test_data)
-    @portland.all_max_wind("imperial").should == [9, 9, 9, 4]
-  end
-
-  it "can return the highest wind speed in its forecast days" do
-    @portland.stub(:forecast_days).and_return(@test_data)
-    @portland.max_wind("imperial").should == 9
-  end
-
-  it "can return the highest wind speed in its forecast days" do
-    @portland.stub(:forecast_days).and_return(@test_data)
-    @portland.max_wind("metric").should == 14
-  end
-  
   it "can return an array of the snow accumilation for each day in the forecast" do
     @portland.stub(:forecast_days).and_return(@test_data)
     @portland.all_snow_day("imperial").should == [0, 0, 0, 0]
@@ -155,5 +140,59 @@ describe WeatherWeasel::Forecast do
     portland.forecast_condition(0).should == "Rain Showers"
   end
   
+  it "can return all avehumidities from its forecast days" do
+    portland = WeatherWeasel::Forecast.new("OR", "Portland", "Test")
+    portland.stub(:forecast_days).and_return(@test_data)
+    portland.avehumidities.should == [70, 68, 51, 71]
+  end
+
+  it "can return avehumidity_day specific day" do
+    portland = WeatherWeasel::Forecast.new("OR", "Portland", "Test")
+    portland.stub(:forecast_days).and_return(@test_data)
+    portland.avehumidity_day(0).should == 70
+  end
+
+  it "can return avehumidity_day_max for highest humidity durning forcast_days" do
+    portland = WeatherWeasel::Forecast.new("OR", "Portland", "Test")
+    portland.stub(:forecast_days).and_return(@test_data)
+    portland.avehumidity_day_max.should == 71
+  end
+
+  it "can return avehumidity_day_min for highest humidity durning forcast_days" do
+    portland = WeatherWeasel::Forecast.new("OR", "Portland", "Test")
+    portland.stub(:forecast_days).and_return(@test_data)
+    portland.avehumidity_day_min.should == 51
+  end
+  
+  it "can return the array of max wind speeds in its forecast days" do
+    @portland.stub(:forecast_days).and_return(@test_data)
+    @portland.all_max_wind("mph").should == [9, 9, 9, 4]
+  end
+
+  it "can return the highest wind speed in its forecast days" do
+    @portland.stub(:forecast_days).and_return(@test_data)
+    @portland.max_wind("mph").should == 9
+  end
+
+  it "can return the highest wind speed in its forecast days" do
+    @portland.stub(:forecast_days).and_return(@test_data)
+    @portland.max_wind("kph").should == 14
+  end
+
+  it "can return the max_wind_day, day specific wind" do
+    @portland.stub(:forecast_days).and_return(@test_data)
+    @portland.max_wind_day(0, "mph").should == 9
+  end
+
+  it "can return the max_wind_direction, day specific direction" do
+    @portland.stub(:forecast_days).and_return(@test_data)
+    @portland.max_wind_direction("imperial")["dir"].should == "southwest"
+  end
+  
+  it "can return the max_wind_direction_day, day specific wind" do
+    @portland.stub(:forecast_days).and_return(@test_data)
+    @portland.max_wind_direction_day("imperial")["dir"].should == "southwest"
+  end
 end
 
+ 

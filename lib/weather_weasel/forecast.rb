@@ -2,10 +2,14 @@ module WeatherWeasel
   class Forecast
     attr_accessor :temperature_format, :rain_format
 
-    def initialize(city, state, client)
+    def initialize(city, state, client, default_scale = "imperial")
       @city = city
       @state = state
       @client = client
+      # If we set the default scale as soon as the forecast is created,
+      # then we can be assured of having default scale data whenever and
+      # wherever we go to look for it.
+      set_scale("default_scale")
     end
         
     def raw_data
@@ -62,11 +66,35 @@ module WeatherWeasel
       all_max_wind(scale).max
     end
     
-    def all_max_wind(scale)
+    def old_max_wind_day(day_index, scale)
+      all_max_wind(scale)[day_index]
+    end
+
+    def max_wind_day(day_index, scale = @wind_format)
+      all_max_wind(scale)[day_index]
+    end
+
+    def old_all_max_wind(scale)
       set_scale(scale)
       forecast_days.collect do |day|
         day["maxwind"][@wind_format]
       end
+    end
+
+    def all_max_wind(scale = @wind_format)
+      forecast_days.collect do |day|
+        day["maxwind"][scale]
+      end
+    end
+
+    def all_max_wind_direction
+      forecast_days.collect do |day|
+        day["maxwind"]["dir"]
+      end
+    end
+
+    def max_wind_direction_day(day_index)
+      all_max_wind_direction(day_index)
     end
 
 #snow methods    
@@ -170,27 +198,26 @@ module WeatherWeasel
     def pop(day_index)
       pops[day_index]
     end
-  end
 
 #Humidity Methods
-  def avehumidities
-    forecaset_days.collect do |day|
-      day["avehumidity"]
+    def avehumidities
+      forecast_days.collect do |day|
+        day["avehumidity"]
+      end
+    end
+
+    def avehumidity_day(day_index)
+      avehumidities[day_index]
+    end
+
+    def avehumidity_day_max
+      avehumidities.max 
+    end
+
+    def avehumidity_day_min
+      avehumidities.min
     end
   end
-
-  def avehumidity_day(day_index = 0)
-    avehumidity(day_index)
-  end
-
-  def avehumidity_day_max
-    avehumidities.max 
-  end
-
-
-
-
-
 end
  
 
@@ -200,7 +227,7 @@ end
 #     "ampm"=>"PM", "tz_short"=>"PST", "tz_long"=>"America/Los_Angeles"}, "period"=>1, 
 #      "icon"=>"rain", 
 #       "icon_url"=>"http://icons-ak.wxug.com/i/c/k/rain.gif", 
-#        "maxwind"=>{"mph"=>9, "kph"=>14, "dir"=>"South", 
-#           "degrees"=>172}, "avewind"=>{"mph"=>7, "kph"=>11, "dir"=>"WNW", "degrees"=>294}, 
-#           "avehumidity"=>70, "maxhumidity"=>90, "minhumidity"=>59}, {"date"=>{"epoch"=>"1362808800", 
+#      
+#           
+  # {"date"=>{"epoch"=>"1362808800", 
 #             "pretty"=>

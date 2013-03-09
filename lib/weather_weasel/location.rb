@@ -108,7 +108,8 @@ module WeatherWeasel
     def all_lows(scale = @scale)
       forecast.all_lows(scale)
     end
-    
+  
+#Wind Methods    
     def all_max_wind(scale = @scale)
       forecast.all_max_wind(scale)
     end
@@ -116,19 +117,33 @@ module WeatherWeasel
     def max_wind(scale = @scale)
       forecast.max_wind(scale)
     end
-    
+ 
+    def max_wind_day(day_index, scale)
+      all_max_wind(scale)[day_index]
+    end
+
+    def all_max_wind_direction
+      forecast.all_max_wind_direction["dir"]
+    end
+
+    def max_wind_direction_day(day_index)
+      forecast.max_wind_direction[day_index]
+    end
+
+  
+#Snow Methods 
     def all_snow_day(scale = @scale)
       forecast.all_snow_day(scale)
     end
     
     def snow_day(day, scale = @scale)
       forecast.snow_day(day, scale)
-    end
-    
+    end 
+
     def highest_snow_day(scale = @scale)
       forecast.highest_snow_day(scale)
     end
-    
+
     def all_snow_night(scale = @scale)
       forecast.snow_night(scale)
     end
@@ -142,22 +157,17 @@ module WeatherWeasel
       forecast.avehumidities
     end
 
-    def avehumidity_day()
-
-  def avehumidity_day(day_index = 0)
-    avehumidity(day_index)
-  end
-
-  def avehumidity_day_max
-    avehumidities.max 
-  end
-
-
-
+    def avehumidity_day(day_index)
+      avehumidities(day_index)
+    end
+  
+    def avehumidity_day_max
+      avehumidities.max 
+    end 
   end
 end
 
-
+# 
 
 #portland = Location.new("Portland", "OR", "metric")
 # portland.forecast("metric")

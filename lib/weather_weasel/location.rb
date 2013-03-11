@@ -42,7 +42,7 @@ module WeatherWeasel
 
 #POPS Methods
     def pop(day_index)
-      forecast.pop(day_index)
+      forecast.pops[day_index]
     end
     
     def pops

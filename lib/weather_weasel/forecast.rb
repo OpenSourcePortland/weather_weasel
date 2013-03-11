@@ -166,10 +166,7 @@ module WeatherWeasel
         day["pop"]
       end
     end
-
-    def pop(day_index)
-      pops[day_index]
-    end
+    
   end
 end
    

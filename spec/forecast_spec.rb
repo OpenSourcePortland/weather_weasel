@@ -102,12 +102,6 @@ describe WeatherWeasel::Forecast do
     portland.skyicons.should == ["partlycloudy", "partlycloudy", "mostlysunny", "cloudy"]
   end 
 
-  it "can return the pop for its forecast days" do
-    portland = WeatherWeasel::Forecast.new("OR", "Portland", "Test")
-    portland.stub(:forecast_days).and_return(@test_data)
-    portland.pop(0).should == 40
-  end
-
   it "can return the pops for its forecast days" do
     portland = WeatherWeasel::Forecast.new("OR", "Portland", "Test")
     portland.stub(:forecast_days).and_return(@test_data)

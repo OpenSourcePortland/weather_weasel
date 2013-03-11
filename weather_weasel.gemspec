@@ -12,6 +12,8 @@ Gem::Specification.new do |gem|
   gem.summary       = "A location-centric system for consuming the Wunderground API"
   gem.homepage      = "https://github.com/OpenSourcePortland/weather_weasel"  
   gem.add_dependency 'httparty', ">= 0.10.2"
+  gem.add_dependency 'rspec'
+  gem.add_dependency 'vcr'
   gem.add_dependency 'simplecov'
   gem.add_dependency 'fakeweb'
 

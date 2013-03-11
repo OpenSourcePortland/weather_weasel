@@ -3,7 +3,7 @@ SimpleCov.start
 
 require 'weather_weasel'
 require 'vcr'
-
+require 'fakeweb'
 
 VCR.configure do |c|
   c.cassette_library_dir = 'spec/cassettes'

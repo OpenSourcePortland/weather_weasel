@@ -8,9 +8,9 @@ Gem::Specification.new do |gem|
   gem.version       = WeatherWeasel::VERSION
   gem.authors       = ["Elizabeth Tabler, Duncan Miller, Michael LaPeter"]
   gem.email         = ["opensourceportland@gmail.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
-  gem.homepage      = ""  
+  gem.description   = "Wrapper for the Wunderground API"
+  gem.summary       = "A location-centric system for consuming the Wunderground API"
+  gem.homepage      = "https://github.com/OpenSourcePortland/weather_weasel"  
   gem.add_dependency 'httparty', ">= 0.10.2"
   gem.add_dependency 'simplecov'
   gem.add_dependency 'fakeweb'

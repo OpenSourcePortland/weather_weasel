@@ -12,6 +12,7 @@ Gem::Specification.new do |gem|
   gem.summary       = %q{TODO: Write a gem summary}
   gem.homepage      = ""  
   gem.add_dependency 'httparty', ">= 0.10.2"
+  gem.add_dependency 'simplecov'
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }

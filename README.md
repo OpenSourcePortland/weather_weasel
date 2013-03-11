@@ -18,7 +18,12 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Export an environment variable called WUNDERGROUND_API_KEY with your Wunderground API key in it.
+
+    require 'weather_weasel'
+    p = WeatherWeasel::Location.new("Portland", "OR")
+    p.all_highs[0] # Today's high
+     # => 61
 
 ## Contributing
 

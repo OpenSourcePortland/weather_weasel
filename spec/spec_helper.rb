@@ -1,5 +1,9 @@
+require 'simplecov'
+SimpleCov.start
+
 require 'weather_weasel'
 require 'vcr'
+
 
 VCR.configure do |c|
   c.cassette_library_dir = 'cassettes'

@@ -118,37 +118,6 @@ module WeatherWeasel
       end
     end
 
-    def qpf_days(scale)
-      set_scale(scale)
-      forecast_days.collect do |day|
-        day["qpf_day"][@rain_format]
-      end
-    end
-
-    def qpf_day(day_index, scale)
-      qpf_days(scale)[day_index]
-    end
-
-    def qpf_nights(scale)
-      set_scale(scale)
-      forecast_days.collect do |day|
-        day["qpf_night"][@rain_format]
-      end
-    end
-
-    def qpf_night(day_index, scale)
-      qpf_nights(scale)[day_index]
-    end
-
-    def yo_dawg(joke)
-      if joke.length > 1000
-        joke
-      else
-        result = joke + "I put a yo dawg joke in your yo dawg joke so you could say \n"
-        yo_dawg(result)
-      end
-    end 
-
 #Skyicon Methods
     def skyicon(day_index = 0)
       skyicons[day_index]

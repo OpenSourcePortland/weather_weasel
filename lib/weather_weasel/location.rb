@@ -53,22 +53,6 @@ module WeatherWeasel
     def qpf_alldays(scale = @scale)
       forecast.qpf_alldays(scale)
     end
-
-    def qpf_days(scale = @scale)
-      forecast.qpf_days(scale)
-    end
-
-    def qpf_day(day_index, scale = @scale)
-      forecast.qpf_day(day_index, scale)
-    end
-
-    def qpf_nights(scale = @scale)
-      forecast.qpf_nights(scale)
-    end
-
-    def qpf_night(day_index, scale = @scale)
-      forecast.qpf_night(day_index, scale)
-    end
     
 #Forecast Methods
     def forecast

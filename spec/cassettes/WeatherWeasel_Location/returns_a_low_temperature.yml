@@ -13,17 +13,17 @@ http_interactions:
       message: OK
     headers:
       date:
-      - Mon, 11 Mar 2013 17:45:58 GMT
+      - Mon, 11 Mar 2013 17:45:59 GMT
       server:
       - Apache/1.3.42 (Unix) PHP/5.3.2
       cache-control:
       - max-age=300
       expires:
-      - Mon, 11 Mar 2013 17:50:58 GMT
+      - Mon, 11 Mar 2013 17:50:59 GMT
       x-creationtime:
-      - '0.147'
+      - '0.170'
       set-cookie:
-      - DT=1363023958:13065:365-f6; path=/; expires=Fri, 01-Jan-2020 00:00:00 GMT;
+      - DT=1363023959:18690:365-z3; path=/; expires=Fri, 01-Jan-2020 00:00:00 GMT;
         domain=.wunderground.com
       connection:
       - close
@@ -120,5 +120,5 @@ http_interactions:
         200\n\t\t},\n\t\t\"avehumidity\": 61,\n\t\t\"maxhumidity\": 74,\n\t\t\"minhumidity\":
         54\n\t\t}\n\t\t]\n\t\t}\n\t}\n}\n"
     http_version: '1.1'
-  recorded_at: Mon, 11 Mar 2013 17:45:59 GMT
+  recorded_at: Mon, 11 Mar 2013 17:46:00 GMT
 recorded_with: VCR 2.4.0

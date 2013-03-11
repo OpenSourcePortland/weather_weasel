@@ -6,7 +6,7 @@ module WeatherWeasel
     end
 
     def raw_data
-      @client.parse_url("currenthurricane/view.json")
+      @data ||= @client.parse_url("currenthurricane/view.json")
     end
   end
 end

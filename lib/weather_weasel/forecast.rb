@@ -15,18 +15,22 @@ module WeatherWeasel
     def forecast_days    
       raw_data["forecast"]["simpleforecast"]["forecastday"]
     end
-
+      
     def set_scale(scale)
-      if scale == "imperial"  
+      scale = scale.to_sym
+      case scale
+      when :imperial  
         @temperature_format = "fahrenheit" 
         @wind_format = "mph"
         @snow_format = "in"
         @rain_format = "in"
-      else
+      when :metric
         @temperature_format = "celsius" 
         @wind_format = "kph"
         @snow_fomrat = "cm"
         @rain_format = "mm"
+      else
+        raise ArgumentError, "Unknown scale: #{scale}"
       end
     end
 

@@ -8,9 +8,9 @@ module WeatherWeasel
       end
     end
     
-    def parse_url(url)
-      response_body = HTTParty.get("http://api.wunderground.com/api/#{@api_key}/#{url}").body
-      JSON.parse(response_body)     
+    def parse_url(path)
+      body = open("http://api.wunderground.com/api/#{@api_key}/#{path}").read
+      JSON.parse(body)
     end
     
   end

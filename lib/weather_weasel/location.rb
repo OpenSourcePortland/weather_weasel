@@ -4,7 +4,7 @@ module WeatherWeasel
     def initialize(city, state, scale = "imperial")
       @city = city
       @state = state
-      @scale = scale
+      @scale = scale.to_sym
       @client = Client.new
     end
 

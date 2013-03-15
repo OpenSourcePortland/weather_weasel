@@ -20,10 +20,14 @@ Or install it yourself as:
 
 Export an environment variable called WUNDERGROUND_API_KEY with your Wunderground API key in it.
 
-    require 'weather_weasel'
-    p = WeatherWeasel::Location.new("Portland", "OR")
-    p.all_highs[0] # Today's high
-     # => 61
+	require 'weather_weasel'
+	p = WeatherWeasel::Location.new("Portland", "OR")
+	p.all_highs # An array of all highs in the forecast in imperial format
+	 # => [61, 54, 69, 70]
+	p.high # The highest high in the forecast
+	 # => 70
+	p.high("metric") # The highest high in the forecast in metric format
+	 # => 21
 
 ## Contributing
 

@@ -1,6 +1,8 @@
 # WeatherWeasel
 
-TODO: Write a gem description
+We have taken the standard Weather Underground www.wunderground.com api and made classes and methods to return data from the api.  To use this, you'll need a Weather Underground API key from here http://www.wunderground.com/weather/api/ (Anvil Developer package is free).  Export an environment variable called WUNDERGROUND_API_KEY with your key in it.
+
+This is still a work in progress and any help you'd like to volunteer would be greatly appreciated!  If anything is unclear please let us know.
 
 ## Installation
 

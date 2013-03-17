@@ -78,7 +78,11 @@ module WeatherWeasel
     end
 
     def day_high(day_index, scale = @scale)
-      forecast.all_highs(day_index, format)
+      forecast.day_high(day_index, scale)
+    end
+    
+    def day_low(day_index, scale = @scale)
+      forecast.day_low(day_index, scale)
     end
     
     def low(scale = @scale)

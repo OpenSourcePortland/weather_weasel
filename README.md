@@ -42,7 +42,7 @@ Setting Metric/ Imperial
   	p.forecast_raw # returns all forecast data from Wunderground API in JSON
   
   	p.high # The highest high in the forecast
-	 => 70
+	# => 70
 	 
 	p.low # The lowest low in the forecast
 	# => 37

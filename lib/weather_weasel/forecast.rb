@@ -42,6 +42,10 @@ module WeatherWeasel
     def day_high(day_index, format = @rain_format)
       all_highs(format)[day_index]
     end
+    
+    def day_low(day_index, format = @rain_format)
+      all_lows(format)[day_index]
+    end
 
     def low(scale)
       all_lows(scale).min

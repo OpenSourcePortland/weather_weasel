@@ -39,36 +39,32 @@ Setting Metric/ Imperial
 	 
 ## All Methods
 
-  p.forecast_raw # returns all forecast data from Wunderground API in JSON
+  	p.forecast_raw # returns all forecast data from Wunderground API in JSON
   
-  p.high # The highest high in the forecast
-	 # => 70
+  	p.high # The highest high in the forecast
+	 => 70
 	 
 	p.low # The lowest low in the forecast
-	 => 37
+	# => 37
 	 
 	p.all_highs # Returns all daily highs as an array
-	 => [54, 54, 50, 55]
+	# => [54, 54, 50, 55]
 	 
 	p.all_lows # Returns all daily lows as an array
-	 => [37, 41, 46, 39]
+	# => [37, 41, 46, 39]
 	 
 	p.day_high(0) # Takes day as argument and returns high for the day 
-	 => 54 
+	# => 54 
 	 
 	p.day_low(2) # Takes day as argument and returns high for the day 
- 	 => 46
+ 	# => 46
  	  
 	p.max_wind # Returns max wind for windiest day
-	 => 16
-  
-  p.all_max_wind # Returns max wind for each day as an array
-   => [8, 8, 10, 16] 
-  
-  
-  
-	 
+	# => 16
 
+  	p.all_max_wind # Returns max wind for each day as an array
+   	# => [8, 8, 10, 16] 
+  
 ## Contributing
 
 1. Fork it
